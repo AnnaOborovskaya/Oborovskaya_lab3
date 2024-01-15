@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 
 from sqlalchemy import create_engine, text
 
-# определяем параметры для подключения
+#определяем параметры для подключения
 
 #settings.DATABASE URL = 'sqlite:///./test02.db
 
