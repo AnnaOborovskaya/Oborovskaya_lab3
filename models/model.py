@@ -10,13 +10,25 @@ class User(Base):
     __tablename__ = "users"
     id = Column(Integer, Identity(start=10), primary_key=True)
     name = Column(String, index=True, nullable=False)
-    password = Column(String)
+    #password = Column(String)
 
 class Tags(Enum):
     users = "users"
     advents = "advents"
     info = "info"
     good = "good"
+
+class Main_User(BaseModel):
+    __tablename__ = "users"
+    id: Annotated[Union[int, None], Field(default=100, ge=1, lt=288)] = None
+    name: Union[str, None] = None
+
+
+class Main_UserDB(Main_User):
+    password: Annotated[Union[str, None], Field(min_length=8, max_length=20)] = None
+
+class New_Respons(BaseModel):
+    message: str
 
 # class Person(BaseModel):
 #     lastName: str = Field(default="lastname", min_length=3, max_length=20)
@@ -42,12 +54,3 @@ class Tags(Enum):
 #     price: Union[float, None] = 0
 #     nalog: Union[float, None] = 13.6
 
-class Main_User(BaseModel):
-    name: Union[str, None] = None
-    id: Annotated[Union[int, None], Field(default=100, ge=1, lt=288)] = None
-
-class Main_UserDB(Main_User):
-    password: Annotated[Union[str, None], Field(min_length=8, max_length=20)] = None
-
-class New_Respons(BaseModel):
-    message: str
