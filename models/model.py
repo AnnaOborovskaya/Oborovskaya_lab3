@@ -1,5 +1,46 @@
 from typing import Union, Annotated
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, HttpUrl
+from sqlalchemy import Column, String, Integer, Identity, Sequence, Float, Boolean, ForeignKey, MetaData
+from sqlalchemy.orm import declarative_base
+from enum import Enum
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, Identity(start=10), primary_key=True)
+    name = Column(String, index=True, nullable=False)
+    password = Column(String)
+
+class Tags(Enum):
+    users = "users"
+    advents = "advents"
+    info = "info"
+    good = "good"
+
+# class Person(BaseModel):
+#     lastName: str = Field(default="lastname", min_length=3, max_length=20)
+#     age: int = Field(prout=100, ge=10, lt=200)
+#
+# class Foto(BaseModel):
+#     url: HttpUrl
+#     name: Union[str, None] = None
+#
+# class User_new(BaseModel):
+#     name: Union[str, None] = None
+#     id: Annotated[Union[int, None], Field(default=100, ge=10, lt=200)] = None
+#     person: Union[Person, None] = None
+#     day_listo: list
+#     day_list1: Union[list, None] = None
+#     day_list2: Union[list[int], None] = None
+#     foto_list: Union[list [Foto], None] = None
+#
+# class Good(BaseModel):
+#     id: Annotated[Union [int, None], Field(default=100, ge=1, lt=200)] = None
+#     name: Union[str, None] = None
+#     description: Union[str, None] = None
+#     price: Union[float, None] = 0
+#     nalog: Union[float, None] = 13.6
 
 class Main_User(BaseModel):
     name: Union[str, None] = None
