@@ -4,7 +4,6 @@ CREATE TABLE users(
 	id_user SERIAL PRIMARY KEY,
 	Name TEXT NOT NULL,
 	district text[],
-	FOREIGN KEY id_order REFERENCES orders (id_order)
 );
 
 CREATE TABLE orders(
