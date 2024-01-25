@@ -3,8 +3,8 @@
 CREATE TABLE users(
 	id_user SERIAL PRIMARY KEY,
 	Name TEXT NOT NULL,
-	district text[],
-);
+	district text[]
+ );
 
 CREATE TABLE orders(
 	id_order SERIAL PRIMARY KEY,
