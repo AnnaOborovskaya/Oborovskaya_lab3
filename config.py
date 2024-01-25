@@ -3,7 +3,7 @@ import os
 
 class Settings:
     app_name: str = "New API"
-    POSTGRES_DATABASE_URLA: str = "postgresql+asyncpg://postgres:61891@localhost:5432/Shop"
+    POSTGRES_DATABASE_URLA: str = "postgresql+asyncpg://postgres:61891@localhost:5432/newdb"
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_HOST: str
